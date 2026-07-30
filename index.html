@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pavel Cyprich | CzechTrade | Gamescom 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#F7F6F1;--bone2:#F2F1EA;--ink:#171717;--ink2:#2E2E2E;--white:#FFFFFF;
+--gray:#6B6B66;--line:#E3E1D8;--lined:#2E2E2E;--yellow:#F8F951;--magenta:#DB52FA;--green:#00FF00}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bone);color:var(--ink);font-family:'Inter',Arial,sans-serif;line-height:1.65;font-size:16px}
+.disp{font-family:'Space Grotesk',Arial,sans-serif;letter-spacing:-.03em}
+.mono{font-family:'JetBrains Mono',Courier,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+.grid-bg{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cpath d='M64 57v14M57 64h14' stroke='%23171717' stroke-opacity='.055' stroke-width='1.5'/%3E%3C/svg%3E"),repeating-linear-gradient(90deg,rgba(23,23,23,.03) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,rgba(23,23,23,.03) 0 1px,transparent 1px 64px)}
+.dark{background:var(--ink);color:var(--bone)}
+.dark.grid-bg{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cpath d='M64 57v14M57 64h14' stroke='%23F7F6F1' stroke-opacity='.07' stroke-width='1.5'/%3E%3C/svg%3E"),repeating-linear-gradient(90deg,rgba(247,246,241,.04) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,rgba(247,246,241,.04) 0 1px,transparent 1px 64px)}
+header.dark,.four{position:relative;overflow:hidden}
+.ghost{position:absolute;pointer-events:none;z-index:0}
+header.dark>.wrap,.four>.wrap{position:relative;z-index:1}
+/* level label */
+.lvl{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
+.lvl::before{content:'';width:20px;height:3px;background:var(--yellow)}
+.dark .lvl{color:#9c9c96}
+/* grid blowout guards */
+.code-grid>*,.vrow>*,.ai-grid>*{min-width:0}
+/* corner ticks on media */
+.ticks{position:relative}
+.ticks::before,.ticks::after{content:'';position:absolute;width:14px;height:14px;transition:width .2s ease-out,height .2s ease-out;z-index:2}
+.ticks::before{top:-8px;left:-8px;border-top:2px solid var(--ink);border-left:2px solid var(--ink)}
+.ticks::after{bottom:-8px;right:-8px;border-bottom:2px solid var(--ink);border-right:2px solid var(--ink)}
+.dark .ticks::before{border-color:var(--yellow)}
+.dark .ticks::after{border-color:var(--yellow)}
+.ticks:hover::before,.ticks:hover::after{width:22px;height:22px}
+.nametag{display:inline-block;background:var(--yellow);color:var(--ink);font-size:.2em;font-weight:700;letter-spacing:.1em;padding:.3em .55em;vertical-align:.62em;margin-left:.32em;border-radius:2px}
+/* hero */
+.hero{padding:64px 0 84px}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:52px}
+.topkick{font-size:11px;letter-spacing:.14em;color:#9c9c96}
+.hero h1{font-size:clamp(44px,7vw,84px);line-height:1.0;font-weight:700}
+.hero h1.gametitle{font-size:clamp(28px,3.8vw,44px);text-transform:uppercase;letter-spacing:-.01em}
+.presents{color:var(--yellow);font-size:13px;font-weight:700;letter-spacing:.34em;margin-bottom:12px}
+.titlebar{width:96px;height:5px;background:var(--yellow);margin:16px 0 12px 2px}
+.menulabel{margin-top:4px;font-size:10px;letter-spacing:.3em;color:#9c9c96}
+.gamemenu{margin-top:16px;display:flex;flex-direction:column;gap:13px;font-size:14px;letter-spacing:.16em}
+.gamemenu .n{color:#9c9c96;font-weight:400;margin-right:14px}
+.gamemenu a{color:var(--bone);text-decoration:none;transition:color .2s ease-out;width:fit-content;position:relative;padding-left:30px}
+.gamemenu a:hover{color:var(--yellow)}
+.gamemenu a.sel{color:var(--yellow);font-weight:700}
+.gamemenu a.sel::before{content:'▸';position:absolute;left:2px}
+.tagline{margin-top:0;font-size:12px;color:#9c9c96;letter-spacing:.12em}
+.tagline span{background:linear-gradient(transparent 72%,var(--yellow) 72%);padding:0 .06em}
+.topmenu{display:flex;align-items:center;flex-wrap:wrap;gap:12px 30px;margin-top:26px;padding:15px 0;border-top:1px solid var(--lined);border-bottom:1px solid var(--lined);font-size:12.5px;letter-spacing:.14em}
+.topmenu .mlab{font-size:10px;letter-spacing:.28em;color:#9c9c96;margin-right:6px}
+.topmenu a{color:var(--bone);text-decoration:none;transition:color .2s ease-out}
+.topmenu a:hover{color:var(--yellow)}
+.topmenu a.sel{color:var(--yellow);font-weight:700}
+.topmenu a.sel::before{content:'▸ '}
+.topmenu .n{color:#9c9c96;font-weight:400;margin-right:8px}
+.topmenu .langsw{margin-left:auto;color:#9c9c96;font-size:11px;letter-spacing:.2em}
+.topmenu .langsw:hover{color:var(--yellow)}
+
+.lockup{margin-top:44px}
+.lockup+.frame-wrap{margin-top:40px}
+.frame-wrap{background:#000}
+.frame{position:relative;width:100%;aspect-ratio:16/9}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frame.aiph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#101010;color:var(--bone)}
+.startbtn{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.18em;padding:14px 26px;border-radius:2px;cursor:pointer;transition:transform .2s ease-out}
+.startbtn:hover{transform:scale(1.04)}
+.startbtn i{display:block;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent var(--ink)}
+.frame.aiph b{letter-spacing:.14em;font-size:14px}
+.frame.aiph small{color:#9c9c96;font-size:11px;letter-spacing:.1em}
+.vmeta{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9c9c96}
+/* sections */
+section{padding:84px 0}
+.sec-head h2{font-size:clamp(30px,4.4vw,48px);font-weight:700;margin-top:16px}
+.sec-sub{color:var(--gray);margin-top:8px;font-size:15px}
+/* production rows */
+.vrow{display:grid;grid-template-columns:7fr 5fr;gap:36px;margin-top:52px;align-items:center}
+.vrow.rev{grid-template-columns:5fr 7fr}
+.vrow.rev .vcol{min-width:0;order:2}
+.vrow.rev .tcol{order:1}
+.tcol h3{font-family:'Space Grotesk',Arial,sans-serif;font-size:22px;letter-spacing:-.02em;line-height:1.25}
+.tcol p{margin-top:12px;color:var(--gray);font-size:14.5px}
+.tcol .num{font-size:11px;letter-spacing:.08em;color:var(--gray);display:block;margin-bottom:14px}
+/* AI grid */
+.ai-grid{display:grid;grid-template-columns:1.778fr .5625fr;gap:24px;margin-top:52px;align-items:start;max-width:880px;margin-left:auto;margin-right:auto}
+.ph{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
+.ph.land{aspect-ratio:16/9}
+.ph.port{aspect-ratio:9/16}
+.ph .lab{font-size:12px;letter-spacing:.1em;color:var(--ink)}
+.ph small{font-size:11px;letter-spacing:.06em;color:var(--gray);text-transform:uppercase}
+.ph .dotp{width:8px;height:8px;border-radius:50%;background:var(--yellow);border:1px solid var(--ink2)}
+/* code band */
+.band{background:var(--bone2)}
+.code-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.term{background:var(--white);border:1px solid var(--line);border-radius:2px;display:flex;flex-direction:column;min-width:0;transition:transform .2s ease-out,box-shadow .2s ease-out}
+.term:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(23,23,23,.08)}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.term-bar i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--gray)}
+.term-bar .fname{margin-left:auto;font-size:11px;color:var(--gray);letter-spacing:.06em}
+.phead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 16px 12px}
+.phead b{font-size:20px;letter-spacing:-.02em}
+.ptag{background:var(--yellow);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.1em;padding:4px 9px;border-radius:2px}
+.term pre{margin:0 16px;background:#101010;border-radius:4px;padding:14px;font-family:'JetBrains Mono',Courier,monospace;font-size:10.5px;line-height:1.7;overflow-x:auto;color:#9FE79F;flex:1}
+.term pre .c{color:#8a8a8a}.term pre .s{color:#e8e876}.term pre .k{font-weight:700;color:var(--magenta)}.term pre .m{color:#7ad4d4}
+.term .desc{padding:14px 16px;margin-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--gray)}
+.term .desc .prompt{color:var(--green);font-weight:700;margin-right:6px;font-family:'JetBrains Mono',monospace}
+.term .note{padding:0 16px 14px;font-size:11px;color:#9c9c96;font-style:italic}
+/* about */
+.about-grid{display:grid;grid-template-columns:4fr 8fr;gap:48px;margin-top:52px;align-items:start}
+.photo{aspect-ratio:4/5;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:12px;letter-spacing:.14em;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.about-lead{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(20px,2.6vw,28px);line-height:1.45;letter-spacing:-.02em;font-weight:500;margin-top:-8px}
+.pcredits{margin-top:30px;max-width:560px}
+.pcredits h3{font-size:10px;letter-spacing:.34em;color:var(--gray);margin-bottom:10px}
+.crow{display:flex;align-items:baseline;gap:10px;padding:8px 0;font-size:11.5px}
+.crow .role{color:var(--gray);white-space:nowrap;letter-spacing:.06em}
+.crow .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-3px)}
+.crow .val{font-weight:700;letter-spacing:.05em;text-align:right}
+/* 4all dark bookend */
+.four{padding:96px 0}
+.four .big{font-size:clamp(40px,6.4vw,72px);line-height:1.05;font-weight:700;margin-top:24px}
+.four .big em{font-style:normal;color:var(--yellow)}
+.four .claim{margin-top:18px;color:#c9c8c1;font-size:16px;max-width:52ch}
+.four-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px}
+.four h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9c9c96;font-family:'JetBrains Mono',monospace}
+.four ul{list-style:none;margin-top:16px}
+.four li{padding:10px 0;border-bottom:1px solid var(--lined);font-size:15px}
+.cchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.cchip{border:1px solid var(--lined);padding:8px 16px;border-radius:2px;font-size:13px;color:var(--bone);text-decoration:none;transition:border-color .2s ease-out,color .2s ease-out}
+.cchip:hover{border-color:var(--yellow);color:var(--yellow)}
+.contact-list{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:2.1}
+.contact-list a{text-decoration:none;background:linear-gradient(var(--magenta),var(--magenta)) left bottom no-repeat;background-size:0% 2px;transition:background-size .25s ease-out}
+.contact-list a:hover{background-size:100% 2px}
+.foot{margin-top:72px;padding-top:20px;border-top:1px solid var(--lined);display:flex;justify-content:space-between;gap:16px;font-size:11px;letter-spacing:.1em;color:#9c9c96;text-transform:uppercase}
+@media(max-width:860px){
+ .vrow,.vrow.rev{grid-template-columns:1fr}.vrow.rev .vcol{min-width:0;order:1}.vrow.rev .tcol{order:2}
+ .ai-grid{grid-template-columns:1fr}.ph.port{max-width:300px;margin:0 auto}
+ .code-grid{grid-template-columns:1fr}
+ .about-grid{grid-template-columns:1fr}.photo{max-width:300px}
+ .four-cols{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="dark grid-bg">
+  <svg class="ghost" style="top:-70px;right:-90px" width="460" height="460" viewBox="0 0 100 100"><polygon points="18,6 88,50 18,94" fill="none" stroke="#F7F6F1" stroke-opacity=".055" stroke-width="1.6"/></svg>
+  <div class="wrap hero">
+    <div class="toprow"><div class="lvl mono">LVL 00 / PRESS START TO BEGIN</div><span class="topkick mono">CzechTrade / Gamescom 2026</span></div>
+    <nav class="topmenu mono">
+      <span class="mlab">SELECT LEVEL</span>
+      <a class="sel" href="#production"><span class="n">01</span>START</a>
+      <a href="#ai"><span class="n">02</span>OUR AI PRODUCTION</a>
+      <a href="#vibe"><span class="n">03</span>VIBE CODE PROJECTS</a>
+      <a href="#about"><span class="n">04</span>PLAYER PROFILE</a>
+      <a href="#fourall"><span class="n">05</span>4ALL</a>
+      <a class="langsw" href="cz.html">CZ</a>
+    </nav>
+    <div class="lockup">
+      <div class="presents mono">PAVEL CYPRICH PRESENTS</div>
+      <h1 class="disp gametitle">4ALL Agency</h1>
+      <div class="titlebar"></div>
+    </div>
+    <div class="frame-wrap ticks">
+      <div class="frame aiph"><span class="startbtn mono"><i></i>START</span></div>
+    </div>
+    <div class="vmeta mono"><span></span><span>Our AI Production / 2026</span></div>
+  </div>
+</header>
+
+<section class="grid-bg" id="production">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lvl mono">LVL 01 / OUR PRODUCTION</div>
+      <h2 class="disp">Our production</h2>
+      <div class="sec-sub">Videos we produced for Entropiq</div>
+    </div>
+    <div class="vrow">
+      <div class="vcol frame-wrap ticks"><div class="frame"><iframe src="https://www.youtube.com/embed/N6Uq-h_How4" title="Christmas Campaign" loading="lazy" allowfullscreen></iframe></div></div>
+      <div class="tcol"><span class="num mono">01 / 03</span><h3>Christmas Campaign</h3><p>Christmas campaign for Entropiq.</p></div>
+    </div>
+    <div class="vrow rev">
+      <div class="vcol frame-wrap ticks"><div class="frame"><iframe src="https://www.youtube.com/embed/HHOfHQk60Vo" title="EA FC Team Reveal" loading="lazy" allowfullscreen></iframe></div></div>
+      <div class="tcol"><span class="num mono">02 / 03</span><h3>EA FC Team Reveal</h3><p>Entropiq x Bohemians Praha.</p></div>
+    </div>
+    <div class="vrow">
+      <div class="vcol frame-wrap ticks"><div class="frame"><iframe src="https://www.youtube.com/embed/-3w22qdvjYA" title="Apex Legends Launch" loading="lazy" allowfullscreen></iframe></div></div>
+      <div class="tcol"><span class="num mono">03 / 03</span><h3>Apex Legends Launch</h3><p>Entropiq enters the arena.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-bg" id="ai">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lvl mono">LVL 02 / OUR AI PRODUCTION</div>
+      <h2 class="disp">Our AI Production</h2>
+    </div>
+    <div class="ai-grid">
+      <div class="ph land ticks"><span class="dotp"></span><span class="lab mono">VIDEO 01</span><small>16:9</small></div>
+      <div class="ph port ticks"><span class="dotp"></span><span class="lab mono">VIDEO 02</span><small>9:16</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="vibe">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lvl mono">LVL 03 / VIBE CODE PROJECTS</div>
+      <h2 class="disp">Vibe code projects</h2>
+      <div class="sec-sub">In-house tools, built with Claude Code</div>
+    </div>
+    <div class="code-grid">
+<div class="term">
+  <div class="term-bar"><i></i><i></i><i></i><span class="fname mono">redakce_ai.py</span></div>
+  <div class="phead"><b class="disp">Redakce.AI</b><span class="mono ptag">AI FOR NEWSROOMS</span></div>
+  <pre><span class="c"># AI drafts for newsrooms</span>
+<span class="m">@router.post</span>(<span class="s">"/articles/generate"</span>)
+<span class="k">async def</span> generate(req: DraftRequest, org=Depends(current_org)):
+    src = <span class="k">await</span> hybrid_search(req.topic, org.id, k=8)  <span class="c"># pgvector</span>
+    style = load_style(req.style_id, org)
+    draft = <span class="k">await</span> claude.generate(build_prompt(req.topic, src, style))
+    <span class="k">return</span> render(<span class="s">"draft.html"</span>, draft)</pre>
+  <div class="desc"><span class="prompt">&gt;</span>AI assistant for Czech newsrooms. FastAPI, PostgreSQL, pgvector, Claude.</div>
+</div>
+<div class="term">
+  <div class="term-bar"><i></i><i></i><i></i><span class="fname mono">crm.py</span></div>
+  <div class="phead"><b class="disp">CRM</b><span class="mono ptag">CLIENT MANAGEMENT</span></div>
+  <pre><span class="c"># pipeline &amp; deals</span>
+<span class="m">@app.post</span>(<span class="s">"/deals/{id}/stage"</span>)
+<span class="k">def</span> move_stage(id: int, stage: Stage, user=Depends(auth)):
+    deal = db.get(Deal, id)
+    deal.stage = stage
+    log_activity(user, deal, stage)
+    notify_owner(deal)
+    <span class="k">return</span> {<span class="s">"ok"</span>: True, <span class="s">"stage"</span>: stage}</pre>
+  <div class="desc"><span class="prompt">&gt;</span>Custom CRM for clients and deal pipeline management.</div>
+</div>
+<div class="term">
+  <div class="term-bar"><i></i><i></i><i></i><span class="fname mono">lzicka.py</span></div>
+  <div class="phead"><b class="disp">Lžička</b><span class="mono ptag">CUSTOM APP</span></div>
+  <pre><span class="c"># lzicka</span>
+<span class="m">@app.get</span>(<span class="s">"/api/today"</span>)
+<span class="k">def</span> today(user=Depends(auth)):
+    plan = build_daily_plan(user)
+    <span class="k">return</span> {
+        <span class="s">"date"</span>: str(date.today()),
+        <span class="s">"items"</span>: plan.items,
+        <span class="s">"done"</span>: plan.progress(),
+    }</pre>
+  <div class="desc"><span class="prompt">&gt;</span>In-house app built in vibe coding mode.</div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-bg" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lvl mono">LVL 04 / PLAYER PROFILE</div>
+      <h2 class="disp">Pavel Cyprich</h2>
+    </div>
+    <div class="about-grid">
+      <div class="photo ticks"><img src="https://static.wixstatic.com/media/b4f04d_46626d6b50054b71a0bf1e498ccfaf7e~mv2.jpg/v1/fill/w_954,h_714,q_90/b4f04d_46626d6b50054b71a0bf1e498ccfaf7e~mv2.jpg" alt="Pavel Cyprich"></div>
+      <div>
+        <p class="about-lead">I work where media, creative and technology meet. I run the 4ALL agency; before that I led the esports organisation Entropiq and the newsroom of TV Seznam.</p>
+        <div class="pcredits">
+          <h3 class="mono">CREDITS</h3>
+<div class="crow"><span class="role mono">CD &amp; MD</span><span class="dots"></span><span class="val mono">4ALL</span></div>
+<div class="crow"><span class="role mono">EX-CEO</span><span class="dots"></span><span class="val mono">ENTROPIQ</span></div>
+<div class="crow"><span class="role mono">EX-EDITOR-IN-CHIEF</span><span class="dots"></span><span class="val mono">TV SEZNAM NEWS</span></div>
+<div class="crow"><span class="role mono">SIDE QUESTS</span><span class="dots"></span><span class="val mono">UPGRADE / CEAP / REDAKCE.AI</span></div>
+<div class="crow"><span class="role mono">CONTACT</span><span class="dots"></span><span class="val mono">4ALL.CZ / HELLO@4ALL.CZ</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark grid-bg four" id="fourall">
+  <svg class="ghost" style="bottom:-90px;right:-70px" width="520" height="520" viewBox="0 0 100 100"><polygon points="18,6 88,50 18,94" fill="none" stroke="#F7F6F1" stroke-opacity=".055" stroke-width="1.6"/></svg>
+  <div class="wrap">
+    <div class="lvl mono">LVL 05 / 4ALL</div>
+    <div class="big disp">Creativity. <em>Technology.</em> Stories.</div>
+    <p class="claim">An AI-opened agency. We save your time and money.</p>
+    <div class="four-cols">
+      <div>
+        <h4>What we do</h4>
+        <ul>
+<li>Content: copy, photo, video, podcasts</li>
+<li>PR and crisis communication</li>
+<li>Campaigns, branding and events</li>
+<li>AI: helping companies use AI at full throttle</li>
+        </ul>
+        <div style="margin-top:34px">
+          <h4>Contact</h4>
+          <div class="contact-list"><a href="https://www.4all.cz">4all.cz</a><br><a href="mailto:hello@4all.cz">hello@4all.cz</a><br>U Průhonu 827/5, Prague 7</div>
+        </div>
+      </div>
+      <div>
+        <h4>Selected clients</h4>
+        <div class="cchips">
+<a class="cchip" href="https://mi-roads.cz" target="_blank" rel="noopener">MI Roads</a>
+<a class="cchip" href="https://www.eahotels.cz" target="_blank" rel="noopener">EA Hotels</a>
+<a class="cchip" href="https://www.trinityhotels.sk" target="_blank" rel="noopener">Trinity Hotels</a>
+<a class="cchip" href="https://www.forendors.cz" target="_blank" rel="noopener">Forendors</a>
+<a class="cchip" href="https://flashtones.cz" target="_blank" rel="noopener">Flashtones</a>
+<a class="cchip" href="https://www.nadaceneuron.cz" target="_blank" rel="noopener">Nadace Neuron</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot mono"><span>Pavel Cyprich / 4ALL</span><span>CzechTrade / Gamescom 2026</span></div>
+  </div>
+</section>
+
+</body>
+</html>
