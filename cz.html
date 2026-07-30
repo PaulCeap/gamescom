@@ -93,6 +93,8 @@ section{padding:84px 0}
 .ph{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
 .ph.land{aspect-ratio:16/9}
 .ph.port{aspect-ratio:9/16}
+.ph.vidcard{position:relative;overflow:hidden;background:#000}
+.ph.vidcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ph .lab{font-size:12px;letter-spacing:.1em;color:var(--ink)}
 .ph small{font-size:11px;letter-spacing:.06em;color:var(--gray);text-transform:uppercase}
 .ph .dotp{width:8px;height:8px;border-radius:50%;background:var(--yellow);border:1px solid var(--ink2)}
@@ -205,7 +207,9 @@ section{padding:84px 0}
     </div>
     <div class="ai-grid">
       <div class="ph land ticks"><span class="dotp"></span><span class="lab mono">VIDEO 01</span><small>16:9</small></div>
-      <div class="ph port ticks"><span class="dotp"></span><span class="lab mono">VIDEO 02</span><small>9:16</small></div>
+      <div class="ph port ticks vidcard">
+        <video src="ai-vertical.mp4" muted loop autoplay playsinline controls></video>
+      </div>
     </div>
   </div>
 </section>
