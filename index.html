@@ -97,6 +97,14 @@ section{padding:84px 0}
 .ph.port{aspect-ratio:9/16}
 .ph.vidcard{position:relative;overflow:hidden;background:#000}
 .ph.vidcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph.vidcard .center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:3}
+.vidlab{position:absolute;left:12px;bottom:10px;font-size:10px;letter-spacing:.1em;color:#F7F6F1;z-index:3}
+.playbtn{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--ink);font-weight:700;font-size:11px;letter-spacing:.16em;padding:9px 16px;border-radius:2px;cursor:pointer;transition:transform .2s ease-out}
+.playbtn:hover{transform:scale(1.06)}
+.playbtn i{display:block;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--ink)}
+.ovl{pointer-events:none}
+.ovl .startbtn,.ovl .playbtn{pointer-events:auto}
+
 .ph .lab{font-size:12px;letter-spacing:.1em;color:var(--ink)}
 .ph small{font-size:11px;letter-spacing:.06em;color:var(--gray);text-transform:uppercase}
 .ph .dotp{width:8px;height:8px;border-radius:50%;background:var(--yellow);border:1px solid var(--ink2)}
@@ -179,7 +187,7 @@ section{padding:84px 0}
         <div class="center ovl" id="aiOverlay"><span class="startbtn mono" onclick="startSpot()"><i></i>START</span></div>
       </div>
     </div>
-    <div class="vmeta mono"><span></span><span>Our AI Production / 2026</span></div>
+    <div class="vmeta mono"><span>AI GAMESCOM SPOT / 2026</span><span>Our AI Production / 2026</span></div>
   </div>
 </header>
 
@@ -213,8 +221,10 @@ section{padding:84px 0}
     </div>
     <div class="ai-grid">
       <div class="ph land ticks"><span class="dotp"></span><span class="lab mono">VIDEO 01</span><small>16:9</small></div>
-      <div class="ph port ticks vidcard">
-        <video src="ai-vertical.mp4" muted loop autoplay playsinline controls></video>
+      <div class="ph port ticks vidcard card">
+        <video src="ai-vertical-loop.mp4" data-full="ai-vertical.mp4" muted loop autoplay playsinline></video>
+        <div class="center ovl"><span class="playbtn mono" onclick="playFull(this)"><i></i>PLAY</span></div>
+        <span class="vidlab mono">AI TRINITY HOTELS SPOT / 2026</span>
       </div>
     </div>
   </div>
@@ -337,12 +347,21 @@ vids.forEach(v=>{
   v.addEventListener('play',()=>{if(!v.muted)pauseOthers(v);});
   v.addEventListener('volumechange',()=>{if(!v.muted&&!v.paused)pauseOthers(v);});
 });
-function startSpot(){
-  const c=document.querySelector('#aispot video');if(!c||c.readyState===0)return;
-  const o=document.getElementById('aiOverlay');o.style.display='none';
-  c.muted=false;c.loop=false;c.controls=true;c.currentTime=0;pauseOthers(c);c.play();
-  c.onended=()=>{c.controls=false;c.muted=true;c.loop=true;c.currentTime=0;c.play();o.style.display='flex';};
+function playFull(btn){
+  const card=btn.closest('.card,.frame');if(!card)return;
+  const v=card.querySelector('video');if(!v)return;
+  const full=v.dataset.full;
+  if(full){if(!v.dataset.loopsrc)v.dataset.loopsrc=v.getAttribute('src');v.setAttribute('src',full);}
+  else if(v.readyState===0){return;}
+  const ovl=card.querySelector('.ovl');if(ovl)ovl.style.display='none';
+  v.muted=false;v.loop=false;v.controls=true;v.currentTime=0;pauseOthers(v);v.play();
+  v.onended=()=>{
+    if(v.dataset.loopsrc)v.setAttribute('src',v.dataset.loopsrc);
+    v.controls=false;v.muted=true;v.loop=true;v.currentTime=0;v.play();
+    if(ovl)ovl.style.display='flex';
+  };
 }
+function startSpot(){const b=document.querySelector('#aispot .startbtn');if(b)playFull(b);}
 </script>
 </body>
 </html>
