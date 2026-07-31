@@ -149,7 +149,8 @@ section{padding:84px 0}
 .four ul{list-style:none;margin-top:16px}
 .four li{padding:10px 0;border-bottom:1px solid var(--lined);font-size:15px}
 .cchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.fourlogo{display:block;margin-top:44px;width:min(300px,55%);height:auto}
+.four-cols>div:last-child{display:flex;flex-direction:column}
+.fourlogo{display:block;margin-top:auto;padding-top:36px;width:min(300px,55%);height:auto;align-self:flex-start}
 .cchip{border:1px solid var(--lined);padding:8px 16px;border-radius:2px;font-size:13px;color:var(--bone);text-decoration:none;transition:border-color .2s ease-out,color .2s ease-out}
 .cchip:hover{border-color:var(--yellow);color:var(--yellow)}
 .contact-list{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:2.1}
