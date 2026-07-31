@@ -222,7 +222,11 @@ video:-webkit-full-screen{object-fit:contain!important;background:#000}
       <h2 class="disp">Our AI Production</h2>
     </div>
     <div class="ai-grid">
-      <div class="ph land ticks"><span class="dotp"></span><span class="lab mono">VIDEO 01</span><small>16:9</small></div>
+      <div class="ph land ticks vidcard card">
+        <video src="ai-video01-loop.mp4" data-full="ai-video01.mp4" muted loop autoplay playsinline></video>
+        <div class="center ovl"><span class="playbtn mono" onclick="playFull(this)"><i></i>PLAY</span></div>
+        <span class="vidlab mono">AI PRODUCTION SPOT / 2026</span>
+      </div>
       <div class="ph port ticks vidcard card">
         <video src="ai-vertical-loop.mp4" data-full="ai-vertical.mp4" muted loop autoplay playsinline></video>
         <div class="center ovl"><span class="playbtn mono" onclick="playFull(this)"><i></i>PLAY</span></div>
@@ -363,6 +367,12 @@ function playFull(btn){
     if(ovl)ovl.style.display='flex';
   };
 }
+function fsFix(){
+  const fe=document.fullscreenElement||document.webkitFullscreenElement;
+  vids.forEach(v=>{v.style.objectFit=(fe&&(fe===v||fe.contains(v)))?'contain':'';});
+}
+document.addEventListener('fullscreenchange',fsFix);
+document.addEventListener('webkitfullscreenchange',fsFix);
 function startSpot(){const b=document.querySelector('#aispot .startbtn');if(b)playFull(b);}
 </script>
 </body>
